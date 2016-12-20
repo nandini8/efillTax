@@ -13,7 +13,7 @@ class PersonalInfo(models.Model):
 	premise_name = models.CharField(max_length = 15, blank = True)
 	road_name = models.CharField(max_length = 10, blank = True)
 	area_name = models.CharField(max_length = 15)
-	district_name = models.CharField(max_length = 15)
+	city_name = models.CharField(max_length = 15)
 	state_name = models.CharField(max_length = 20)
 	country_name = models.CharField(max_length = 20)
 	pincode = models.CharField(max_length = 6)
@@ -29,10 +29,4 @@ class PersonalInfo(models.Model):
 
 	def __str__():
 		return pan_number
-
-
-
-
-
-	
 
