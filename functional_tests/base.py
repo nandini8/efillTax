@@ -1,7 +1,8 @@
+from django.contrib.staticfiles.testing import LiveServerTestCase
 from selenium import webdriver
 import unittest
 
-class FunctionalTest(unittest.TestCase):
+class FunctionalTest(LiveServerTestCase):
 	def setUp(self):
 		self.browser = webdriver.Firefox()
 		
