@@ -1,0 +1,7 @@
+Naming conventions:
+
+classes: CapWords convention
+variables: lowercase
+function name: lower_case_with_underscore
+constants: UPPERCASE
+operations: spaces between operands and operators
