@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'efill_tax.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'efiil_db',
+        'NAME': 'efill_db',
         'USER': 'root',
         'PASSWORD': 'mysql',
         'HOST': 'localhost',
