@@ -3,6 +3,8 @@ from django.http import HttpRequest
 from efill_app.views import itr_form_view
 from efill_app.models import PersonalInfo
 from django.core.exceptions import ValidationError
+from django.db import IntegrityError
+
 
 # Create your tests here.
 
@@ -27,6 +29,17 @@ class PersonalInfoModelTest(TestCase):
 		personal_obj = PersonalInfo.objects.create(pan_number='')
 		with self.assertRaises(ValidationError):
 			personal_obj.full_clean()
+
+	def test_pan_should_be_unique(self):
+		error = None
+		personal_obj_1 = PersonalInfo.objects.create(pan_number = 'a')
+		try:
+			personal_obj_2 = PersonalInfo.objects.create(pan_number = 'a')
+		except IntegrityError as e:
+			error = "Pan number should be unique"
+
+		self.assertEqual(error, "Pan number should be unique")
+
 
 class PersonalInfoViewTest(TestCase):
 

@@ -3,6 +3,7 @@ from efill_app.forms import PersonalInfoForm
 from django.http import HttpResponse
 from efill_app.models import PersonalInfo
 from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 
 # Create your views here.
 
@@ -10,10 +11,15 @@ from django.core.exceptions import ValidationError
 def itr_form_view(request):
 	error = None
 	if request.method == 'POST':
-		perosnal_obj = PersonalInfo.objects.create(pan_number=request.POST['pan_number'])
 		try:
+			perosnal_obj = PersonalInfo.objects.create(pan_number=request.POST['pan_number'])
 			perosnal_obj.full_clean()
 		except ValidationError:
 			perosnal_obj.delete()
 			error = "Pan number cannot be empty."
+		except IntegrityError:
+			error = "Pan number should be unique"
+
 	return render(request, 'ITRform.html',{'error': error})
+
+

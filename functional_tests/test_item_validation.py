@@ -18,3 +18,14 @@ class PanFieldTest(FunctionalTest):
 		pan_inputbox.send_keys('\n')
 		error = self.get_error_by_css_selector()
 		self.assertEqual(error.text, "Pan number cannot be empty.")
+
+	def test_pan_number_should_be_unique(self):
+		self.browser.get(self.live_server_url)
+		pan_inputbox = self.get_element('id_pan_number')
+		pan_inputbox.send_keys('a\n')
+		pan_inputbox = self.get_element('id_pan_number')
+		pan_inputbox.send_keys('b\n')
+		pan_inputbox = self.get_element('id_pan_number')
+		pan_inputbox.send_keys('a\n')
+		error = self.get_error_by_css_selector()
+		self.assertEqual(error.text, "Pan number should be unique")
