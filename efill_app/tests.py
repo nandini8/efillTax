@@ -17,33 +17,37 @@ class HomePageView(TestCase):
 	def test_can_save_POST_requests_in_object(self):
 		request = HttpRequest()
 		request.method = 'POST'
-		request.POST['pan_number'] = '1234567890'
+		request.POST['pan_number'] = 'AAAPL1234C'
 
 		response = itr_form_view(request)
-		self.assertEqual('1234567890',PersonalInfo.objects.first().pan_number)
+		self.assertEqual('AAAPL1234C',PersonalInfo.objects.first().pan_number)
 
 
 class PersonalInfoModelTest(TestCase):
 
-	def test_pan_cannot_be_empty(self):
-		personal_obj = PersonalInfo.objects.create(pan_number='')
-		with self.assertRaises(ValidationError):
-			personal_obj.full_clean()
-
 	def test_pan_should_be_unique(self):
 		error = None
-		personal_obj_1 = PersonalInfo.objects.create(pan_number = 'a')
+		personal_obj_1 = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
 		try:
-			personal_obj_2 = PersonalInfo.objects.create(pan_number = 'a')
+			personal_obj_2 = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
 		except IntegrityError as e:
 			error = "Pan number should be unique"
 
 		self.assertEqual(error, "Pan number should be unique")
 
+	def test_pan_characters_should_be_valid(self):
+		error = None
+		personal_obj = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
+		self.assertRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
 
-class PersonalInfoViewTest(TestCase):
+		personal_obj = PersonalInfo.objects.create(pan_number = '1A34254VC4')
+		self.assertNotRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
 
+
+'''class PersonalInfoViewTest(TestCase):
 	def test_validation_errors_are_sent_back(self):
 		response = self.client.post('/', data={'pan_number': ''})
 		expected_error = "Pan number cannot be empty."
 		self.assertContains(response, expected_error)
+'''
+
