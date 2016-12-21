@@ -20,12 +20,12 @@ class HomePageView(TestCase):
 		response = itr_form_view(request)
 		self.assertEqual('1234567890',PersonalInfo.objects.first().pan_number)
 
+
 class PersonalInfoModelTest(TestCase):
 
 	def test_pan_cannot_be_empty(self):
 		personal_obj = PersonalInfo.objects.create(pan_number='')
 		with self.assertRaises(ValidationError):
-			personal_obj.save()
 			personal_obj.full_clean()
 
 class PersonalInfoViewTest(TestCase):

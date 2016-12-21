@@ -14,5 +14,6 @@ def itr_form_view(request):
 		try:
 			perosnal_obj.full_clean()
 		except ValidationError:
+			perosnal_obj.delete()
 			error = "Pan number cannot be empty."
 	return render(request, 'ITRform.html',{'error': error})
