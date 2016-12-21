@@ -1,3 +1,14 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +18,13 @@
 	Pan Number
 	<form method="POST">
 		<input name="pan_number" id="id_pan_number" placeholder="Enter your PAN number"/>
-		{ % csrf_token %}
+		{{ data }}
+		{% csrf_token %}
+		{% if error %}
+			<div class="form-group has-error">
+				<span class="help-block"> {{ error }}</span>
+			</div>
+		{% endif %}
 	</form>
 </body>
-</html>ITR Form
+</html>
