@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from efill_app.views import itr_form_view
 from efill_app.models import PersonalInfo
 from django.core.exceptions import ValidationError
-from django.db import IntegrityError
+from django.db import IntegrityError, DataError
 
 
 # Create your tests here.
@@ -36,18 +36,13 @@ class PersonalInfoModelTest(TestCase):
 		self.assertEqual(error, "Pan number should be unique")
 
 	def test_pan_characters_should_be_valid(self):
-		error = None
 		personal_obj = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
 		self.assertRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
 
-		personal_obj = PersonalInfo.objects.create(pan_number = '1A34254VC4')
-		self.assertNotRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
-
-
-'''class PersonalInfoViewTest(TestCase):
-	def test_validation_errors_are_sent_back(self):
-		response = self.client.post('/', data={'pan_number': ''})
-		expected_error = "Pan number cannot be empty."
-		self.assertContains(response, expected_error)
-'''
+		try:
+			personal_obj = PersonalInfo.objects.create(pan_number = '1A34254VC4K')
+			self.assertNotRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
+		except DataError:
+			error = "Invalid PAN number"
+		
 

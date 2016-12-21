@@ -10,8 +10,6 @@ class PanFieldTest(FunctionalTest):
 		inputbox = self.get_element('id_pan_number')
 		inputbox.send_keys('AAAPL1234C\n')
 
-		time.sleep(5)
-
 	def test_pan_number_should_be_unique(self):
 		self.browser.get(self.live_server_url)
 		pan_inputbox = self.get_element('id_pan_number')
@@ -23,9 +21,16 @@ class PanFieldTest(FunctionalTest):
 		error = self.get_error_by_css_selector()
 		self.assertEqual(error.text, "Pan number should be unique")
 
-	def test_pan_number_has_right_characters(self):
+	def test_pan_number_has_right_characters_and_length_is_ten_characters(self):
 		self.browser.get(self.live_server_url)
 		pan_inputbox = self.get_element('id_pan_number')
 		pan_inputbox.send_keys('AAA2345ASE\n')
 		error = self.get_error_by_css_selector()
 		self.assertEqual(error.text, "Invalid PAN number")
+
+		pan_inputbox = self.get_element('id_pan_number')
+		pan_inputbox.send_keys('AAA2345ASEF\n')
+		error = self.get_error_by_css_selector()
+		self.assertEqual(error.text, "Invalid PAN number")
+
+
