@@ -33,4 +33,33 @@ class PanFieldTest(FunctionalTest):
 		error = self.get_error_by_css_selector()
 		self.assertEqual(error.text, "Invalid PAN number")
 
+	def test_names_should_be_characters_only_and_last_name_should_not_be_null(self):
+		self.browser.get(self.live_server_url)
+		name_inputbox = self.get_element('id_first_name')
+		name_inputbox.send_keys('Raj12\n')
+		error = self.get_error_by_css_selector()
+		self.assertEqual(error.text, "Can not have other characters in name")
+
+		self.browser.get(self.live_server_url)
+		name_inputbox = self.get_element('id_middle_name')
+		name_inputbox.send_keys('Kumar.3\n')
+		error = self.get_error_by_css_selector()
+		self.assertEqual(error.text, "Can not have other characters in name")
+		
+		self.browser.get(self.live_server_url)
+		name_inputbox = self.get_element('id_last_name')
+		name_inputbox.send_keys('Koothrapa65lli\n')
+		error = self.get_error_by_css_selector()
+		self.assertEqual(error.text, "Can not have other characters in name")
+
+		self.browser.get(live_server_url)
+		name_inputbox = get_element('id_last_name')
+		name_inputbox.send_keys('\n')
+		error = self.get_error_by_css_selector()
+		self.assertEqual(error.text, "Last name should be provided")
+		
+
+
+
+
 

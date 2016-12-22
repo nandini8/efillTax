@@ -29,5 +29,21 @@ class PersonalInfoModelTest(TestCase):
 			self.assertNotRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
 		except DataError:
 			error = "Invalid PAN number"
-		
 
+	def test_fname_mname_lname_should_be_valid(self):
+		error = None
+		personal_obj = PersonalInfo.objects.create(pan_number = 'AAAPL1234C', first_name="Penny", middle_name="lucifer",last_name="macintosh")
+		self.assertRegex(personal_obj.first_name,'^[A-Za-z]{2,25}$')
+		self.assertRegex(personal_obj.middle_name,'^[A-Za-z]{2,25}$')
+		self.assertRegex(personal_obj.last_name,'^[A-Za-z]{2,25}$')
+
+	def test_last_name_cannot_be_empty(self):
+		error = None
+		try:
+			personal_obj = PersonalInfo.objects.create(pan_number = 'AAAPL1234C',last_name="")
+			personal_obj.full_clean()
+		except ValidationError:
+			personal_obj.delete()
+			error = "Last name cannot be empty"
+
+		self.assertEqual(error,"Last name cannot be empty")
