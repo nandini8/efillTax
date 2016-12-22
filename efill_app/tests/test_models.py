@@ -12,20 +12,20 @@ class PersonalInfoModelTest(TestCase):
 
 	def test_pan_should_be_unique(self):
 		error = None
-		personal_obj_1 = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
+		personal_obj_1 = PersonalInfo.objects.create(pan_number = 'AAAPL1234C', last_name='macintosh')
 		try:
-			personal_obj_2 = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
+			personal_obj_2 = PersonalInfo.objects.create(pan_number = 'AAAPL1234C', last_name='macintosh')
 		except IntegrityError as e:
 			error = "Pan number should be unique"
 
 		self.assertEqual(error, "Pan number should be unique")
 
 	def test_pan_characters_should_be_valid(self):
-		personal_obj = PersonalInfo.objects.create(pan_number = 'AAAPL1234C')
+		personal_obj = PersonalInfo.objects.create(pan_number = 'AAAPL1234C', last_name='macintosh')
 		self.assertRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
 
 		try:
-			personal_obj = PersonalInfo.objects.create(pan_number = '1A34254VC4K')
+			personal_obj = PersonalInfo.objects.create(pan_number = '1A34254VC4K', last_name='macintosh')
 			self.assertNotRegex(personal_obj.pan_number, '^[A-Z]{5}[0-9A-Z]{5}$')
 		except DataError:
 			error = "Invalid PAN number"

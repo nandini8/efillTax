@@ -11,20 +11,41 @@ import re
 def itr_form_view(request):
 	error = None
 	if request.method == 'POST':
-		try:
-			perosnal_obj = PersonalInfo.objects.create(pan_number=request.POST['pan_number'], last_name=request.POST['last_name'])
-			if re.match(r'^[A-Z]{5}[0-9A-Z]{5}$',perosnal_obj.pan_number ) and len(perosnal_obj.pan_number) == 10:
-				perosnal_obj.full_clean()
-			else:
-				perosnal_obj.delete()
-				error = "Invalid PAN number"
-		except IntegrityError:
-			error = "Pan number should be unique"
-		except DataError as e:
-			error = "Invalid PAN number"
-		except ValidationError:
-			error = "Last name cannot be empty"
+		error = test_all(request)
 
 	return render(request, 'ITRform.html',{'error': error})
 
 
+def test_all(request):
+	error = {}
+	error['pan'] = validate_pan_number(request)
+	error['last_name'] = validate_last_name(request)
+	return error
+
+def validate_pan_number(request):
+	error = None
+	pan_number = request.POST['pan_number']
+	if pan_number == " " or pan_number == None:
+		error = "PAN number can not be empty"
+		return error
+	elif not re.match(r'^[A-Z]{5}[0-9A-Z]{5}$',pan_number ) and not len(pan_number) == 10:
+		error = "Invalid PAN number"
+		return error
+	else: #PersonalInfo.objects.filter(pan_number = pan_number):
+		error = "Invalid PAN number"
+		return error
+	return error
+
+def validate_last_name(request):
+	error = None
+	last_name = request.POST['last_name']
+	if last_name == " " or last_name == None:
+		error = "Last name should not be empty"
+		return error
+	elif not re.match(r'^[A-Za-z]{1,25}$', last_name):
+		error = "Last name should contain characters only"
+		return error
+	else:
+		return error
+
+	
