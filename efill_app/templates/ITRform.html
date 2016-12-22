@@ -15,16 +15,96 @@
 	<title>ITR Form</title>
 </head>
 <body>
-	Pan Number
+<div class="jumbotron container">
+	<h1 class="text-center">Income Tax Return Form</h1>
 	<form method="POST">
-		<input name="pan_number" id="id_pan_number" placeholder="Enter your PAN number"/>
-		{{ data }}
 		{% csrf_token %}
-		{% if error %}
-			<div class="form-group has-error">
-				<span class="help-block"> {{ error }}</span>
-			</div>
-		{% endif %}
+		<table class="table table-hover">
+			<tr>
+				<td class="text-center">PAN Number</td>
+				<td><input name="pan_number" id="id_pan_number" placeholder="Enter PAN number" class="form-control"/>
+					{% if error %}
+					<div class="form-group has-error">
+						<span class="help-block"> {{ error }}</span>
+					</div>
+					{% endif %}
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-center">First Name</td>
+				<td><input name="first_name" id="id_first_name" placeholder="Enter first name" class="form-control"></td>
+			</tr>
+
+			<tr>
+				<td class="text-center">Middle Name</td>
+				<td><input name="middle_name" id="id_middle_name" placeholder="Enter midddle name" class="form-control"></td>
+			</tr>
+
+			<tr>
+				<td class="text-center">Last Name</td>
+				<td><input name="last_name" id="id_last_name" placeholder="Enter last name" class="form-control"></td>
+			</tr>
+			<tr>
+				<td class="text-center">Flat/ Building/ Door</td>
+				<td><input name="last_name" id="id_flat_number" placeholder="Enter flat/ building/ door number" class="form-control"></td>
+			</tr>
+			<tr>
+				<td class="text-center">Name of Premises/ Building/ Village</td>
+				<td><input name="last_name" id="id_premise_name" placeholder="Enter Premises/ Building/ Village" class="form-control"></td>
+			</tr>
+			<tr>
+				<td class="text-center">Road/ Street</td>
+				<td><input name="last_name" id="id_road_name" placeholder="Enter Road/ Street" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Area/ Locality</td>
+				<td><input name="last_name" id="id_area_name" placeholder="Enter Area/ Locality" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Town/ City/ District</td>
+				<td><input name="last_name" id="id_city_name" placeholder="Enter Town/ City/ District" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">State</td>
+				<td><input name="last_name" id="id_state_name" placeholder="Enter State name" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Country</td>
+				<td><input name="last_name" id="id_country_name" placeholder="Enter Country name" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Pincode</td>
+				<td><input name="last_name" id="id_pincode" placeholder="Enter Pincode" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Martial Status</td>
+				<td><input name="last_name" id="id_martial_status" placeholder="Select" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Date of Birth</td>
+				<td><input name="last_name" id="id_dob" placeholder="Select" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Sex</td>
+				<td><input name="last_name" id="id_sex" placeholder="Select" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Email Address</td>
+				<td><input name="last_name" id="id_email" placeholder="Enter Email Address" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Mobile No. 1</td>
+				<td><input name="last_name" id="id_mobile_1" placeholder="Enter mobile number" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Mobile No. 2</td>
+				<td><input name="last_name" id="id_mobile_2" placeholder="Enter mobile number" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">STD code</td>
+				<td><input name="last_name" id="id_std" placeholder="Enter STD code" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Phone number</td>
+				<td><input name="last_name" id="id_phone" placeholder="Enter phone number" class="form-control"></td>
+			</tr><tr>
+				<td class="text-center">Employer Category</td>
+				<td><input name="last_name" id="id_employer_category" placeholder="Select" class="form-control"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="Submit" id="Submit" class="btn btn-primary"/></td>
+			</tr>
+		</table>
 	</form>
+</div>
 </body>
 </html>
