@@ -25,11 +25,12 @@ def test_all(request):
 def validate_pan_number(request):
 	error = None
 	pan_number = request.POST['pan_number']
-	if not re.match(r'^[A-Z]{5}[0-9A-Z]{5}$',pan_number) and not len(pan_number) == 10:
+	print(pan_number)
+	if not re.match(r'^[A-Z]{5}[0-9A-Z]{5}$',pan_number):
+		print("1")
 		error = "Invalid PAN number"
 		return error
 	else: #PersonalInfo.objects.filter(pan_number = pan_number):
-		error = "Invalid PAN number"
 		return error
 	return error
 
