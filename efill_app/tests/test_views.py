@@ -21,5 +21,3 @@ class HomePageView(TestCase):
 
 		response = itr_form_view(request)
 		self.assertEqual('AAAPL1234C',PersonalInfo.objects.first().pan_number)
-
-

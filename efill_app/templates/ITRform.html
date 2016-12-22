@@ -15,16 +15,40 @@
 	<title>ITR Form</title>
 </head>
 <body>
-	Pan Number
+	<h1 class="text-center">Income Tax Return Form</h1>
 	<form method="POST">
-		<input name="pan_number" id="id_pan_number" placeholder="Enter your PAN number"/>
-		{{ data }}
 		{% csrf_token %}
-		{% if error %}
-			<div class="form-group has-error">
-				<span class="help-block"> {{ error }}</span>
-			</div>
-		{% endif %}
+		<table class="table table-hover">
+			<tr>
+				<td class="text-center">PAN Number</td>
+				<td><input name="pan_number" id="id_pan_number" placeholder="Enter your PAN number" class="form-control"/>
+					{% if error %}
+					<div class="form-group has-error">
+						<span class="help-block"> {{ error }}</span>
+					</div>
+					{% endif %}
+				</td>
+			</tr>
+
+			<tr>
+				<td class="text-center">First Name</td>
+				<td><input name="first_name" id="id_first_name" placeholder="Enter your first name" class="form-control"></td>
+			</tr>
+
+			<tr>
+				<td class="text-center">Middle Name</td>
+				<td><input name="middle_name" id="id_middle_name" placeholder="Enter your midddle name" class="form-control"></td>
+			</tr>
+
+			<tr>
+				<td class="text-center">Last Name</td>
+				<td><input name="last_name" id="id_last_name" placeholder="Enter your last name" class="form-control"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="Submit" id="Submit" class="btn btn-primary"/></td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>
