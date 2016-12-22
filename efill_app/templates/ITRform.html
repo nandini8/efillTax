@@ -13,7 +13,7 @@
 <html>
 <head>
 	<title>ITR Form</title>
-</head>
+</
 <body>
 <div class="jumbotron container">
 	<h1 class="text-center">Income Tax Return Form</h1>
@@ -23,9 +23,9 @@
 			<tr>
 				<td class="text-center">PAN Number</td>
 				<td><input name="pan_number" id="id_pan_number" placeholder="Enter PAN number" class="form-control"/>
-					{% if error %}
-					<div class="form-group has-error">
-						<span class="help-block"> {{ error }}</span>
+					{% if  error.pan  %}
+					<div id="pan_div" class="form-group has-error">
+						<span class="help-block"> {{ error.pan }}</span>
 					</div>
 					{% endif %}
 				</td>
@@ -43,61 +43,67 @@
 
 			<tr>
 				<td class="text-center">Last Name</td>
-				<td><input name="last_name" id="id_last_name" placeholder="Enter last name" class="form-control"></td>
+				<td><input name="last_name" id="id_last_name" placeholder="Enter last name" class="form-control">
+				{% if error.last_name %}
+					<div id="last_name_div" class="form-group has-error">
+						<span class="help-block"> {{ error.last_name }}</span>
+					</div>
+					{% endif %}
+				</td>
 			</tr>
 			<tr>
 				<td class="text-center">Flat/ Building/ Door</td>
-				<td><input name="last_name" id="id_flat_number" placeholder="Enter flat/ building/ door number" class="form-control"></td>
+				<td><input name="flat_name" id="id_flat_number" placeholder="Enter flat/ building/ door number" class="form-control"></td>
 			</tr>
 			<tr>
 				<td class="text-center">Name of Premises/ Building/ Village</td>
-				<td><input name="last_name" id="id_premise_name" placeholder="Enter Premises/ Building/ Village" class="form-control"></td>
+				<td><input name="premise_name" id="id_premise_name" placeholder="Enter Premises/ Building/ Village" class="form-control"></td>
 			</tr>
 			<tr>
 				<td class="text-center">Road/ Street</td>
-				<td><input name="last_name" id="id_road_name" placeholder="Enter Road/ Street" class="form-control"></td>
+				<td><input name="road_name" id="id_road_name" placeholder="Enter Road/ Street" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Area/ Locality</td>
-				<td><input name="last_name" id="id_area_name" placeholder="Enter Area/ Locality" class="form-control"></td>
+				<td><input name="area_name" id="id_area_name" placeholder="Enter Area/ Locality" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Town/ City/ District</td>
-				<td><input name="last_name" id="id_city_name" placeholder="Enter Town/ City/ District" class="form-control"></td>
+				<td><input name="district_name" id="id_city_name" placeholder="Enter Town/ City/ District" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">State</td>
-				<td><input name="last_name" id="id_state_name" placeholder="Enter State name" class="form-control"></td>
+				<td><input name="state_name" id="id_state_name" placeholder="Enter State name" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Country</td>
-				<td><input name="last_name" id="id_country_name" placeholder="Enter Country name" class="form-control"></td>
+				<td><input name="country_name" id="id_country_name" placeholder="Enter Country name" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Pincode</td>
-				<td><input name="last_name" id="id_pincode" placeholder="Enter Pincode" class="form-control"></td>
+				<td><input name="pincode" id="id_pincode" placeholder="Enter Pincode" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Martial Status</td>
-				<td><input name="last_name" id="id_martial_status" placeholder="Select" class="form-control"></td>
+				<td><input name="martial_status" id="id_martial_status" placeholder="Select" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Date of Birth</td>
-				<td><input name="last_name" id="id_dob" placeholder="Select" class="form-control"></td>
+				<td><input name="dob" id="id_dob" placeholder="Select" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Sex</td>
-				<td><input name="last_name" id="id_sex" placeholder="Select" class="form-control"></td>
+				<td><input name="sex" id="id_sex" placeholder="Select" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Email Address</td>
-				<td><input name="last_name" id="id_email" placeholder="Enter Email Address" class="form-control"></td>
+				<td><input name="email" id="id_email" placeholder="Enter Email Address" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Mobile No. 1</td>
-				<td><input name="last_name" id="id_mobile_1" placeholder="Enter mobile number" class="form-control"></td>
+				<td><input name="mobile_1" id="id_mobile_1" placeholder="Enter mobile number" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Mobile No. 2</td>
-				<td><input name="last_name" id="id_mobile_2" placeholder="Enter mobile number" class="form-control"></td>
+				<td><input name="mobile_2" id="id_mobile_2" placeholder="Enter mobile number" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">STD code</td>
-				<td><input name="last_name" id="id_std" placeholder="Enter STD code" class="form-control"></td>
+				<td><input name="std" id="id_std" placeholder="Enter STD code" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Phone number</td>
-				<td><input name="last_name" id="id_phone" placeholder="Enter phone number" class="form-control"></td>
+				<td><input name="phone" id="id_phone" placeholder="Enter phone number" class="form-control"></td>
 			</tr><tr>
 				<td class="text-center">Employer Category</td>
-				<td><input name="last_name" id="id_employer_category" placeholder="Select" class="form-control"></td>
+				<td><input name="emp_category" id="id_employer_category" placeholder="Select" class="form-control"></td>
 			</tr>
 			<tr>
 				<td></td>
