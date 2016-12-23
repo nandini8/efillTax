@@ -21,6 +21,7 @@ def test_all(request):
 	error['pan'] = validate_pan_number(request)
 	error['last_name'] = validate_last_name(request)
 	error['first_name'] = validate_first_name(request)
+	error['middle_name'] = validate_middle_name(request)
 	return error
 
 def validate_pan_number(request):
@@ -49,6 +50,15 @@ def validate_first_name(request):
 		return error
 	else:
 		error = "Enter a valid first name"
+		return error
+
+def validate_middle_name(request):
+	error = None
+	middle_name = request.POST['middle_name']
+	if re.match(r'^[A-Za-z]{1,25}$', middle_name) or middle_name == "":
+		return error
+	else:
+		error = "Enter a valid middle name"
 		return error
 
 	

@@ -37,11 +37,11 @@ class LastNameFeildTest(FunctionalTest):
 		error = self.get_element('first_name_div')
 		self.assertEqual(error.text, "Enter a valid first name")
 
-		'''self.browser.get(self.live_server_url)
+		self.browser.get(self.live_server_url)
 		name_inputbox = self.get_element('id_middle_name')
 		name_inputbox.send_keys('Kumar.3\n')
-		error = self.get_error_by_css_selector()
-		self.assertEqual(error.text, "Can not have other characters in name")'''
+		error = self.get_element('middle_name_div')
+		self.assertEqual(error.text, "Enter a valid middle name")
 	
 		self.browser.get(self.live_server_url)
 		name_inputbox = self.get_element('id_last_name')
