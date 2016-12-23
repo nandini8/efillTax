@@ -20,7 +20,8 @@ def test_all(request):
 	error = {}
 	error['pan'] = validate_pan_number(request)
 	error['last_name'] = validate_last_name(request)
-	#error['first_name'] = validate_first_name(request)
+	error['first_name'] = validate_first_name(request)
+	error['middle_name'] = validate_middle_name(request)
 	return error
 
 def validate_pan_number(request):
@@ -37,18 +38,27 @@ def validate_last_name(request):
 	error = None
 	last_name = request.POST['last_name']
 	if not re.match(r'^[A-Za-z]{1,25}$', last_name):
-		error = "Can not have other characters in name"
+		error = "Enter a valid last name"
 		return error
 	else:
 		return error
 
-'''def validate_first_name(request):
+def validate_first_name(request):
 	error = None
-	first_name = request.POST.get('first_name')
-	if re.match(r'^[A-Za-z]{1,25}$', first_name) or first_name == None:
+	first_name = request.POST['first_name']
+	if re.match(r'^[A-Za-z]{1,25}$', first_name) or first_name == "":
 		return error
 	else:
-		error = "Can not have other characters in name"
+		error = "Enter a valid first name"
 		return error
-'''
+
+def validate_middle_name(request):
+	error = None
+	middle_name = request.POST['middle_name']
+	if re.match(r'^[A-Za-z]{1,25}$', middle_name) or middle_name == "":
+		return error
+	else:
+		error = "Enter a valid middle name"
+		return error
+
 	
