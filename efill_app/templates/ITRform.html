@@ -33,7 +33,13 @@
 
 			<tr>
 				<td class="text-center">First Name</td>
-				<td><input name="first_name" id="id_first_name" placeholder="Enter first name" class="form-control"></td>
+				<td><input name="first_name" id="id_first_name" placeholder="Enter first name" class="form-control">
+				<!--{% if error.first_name  %}
+					<div id="first_name_div" class="form-group has-error">
+						<span class="help-block"> {{ error.first_name }}</span>
+					</div>
+					{% endif %}-->
+				</td>
 			</tr>
 
 			<tr>

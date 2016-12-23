@@ -20,27 +20,35 @@ def test_all(request):
 	error = {}
 	error['pan'] = validate_pan_number(request)
 	error['last_name'] = validate_last_name(request)
+	#error['first_name'] = validate_first_name(request)
 	return error
 
 def validate_pan_number(request):
 	error = None
 	pan_number = request.POST['pan_number']
-	print(pan_number)
 	if not re.match(r'^[A-Z]{5}[0-9A-Z]{5}$',pan_number):
-		print("1")
 		error = "Invalid PAN number"
 		return error
-	else: #PersonalInfo.objects.filter(pan_number = pan_number):
-		return error
+	#else: #PersonalInfo.objects.filter(pan_number = pan_number):
+		#return error
 	return error
 
 def validate_last_name(request):
 	error = None
 	last_name = request.POST['last_name']
 	if not re.match(r'^[A-Za-z]{1,25}$', last_name):
-		error = "Last name should contain characters only"
+		error = "Can not have other characters in name"
 		return error
 	else:
 		return error
 
+'''def validate_first_name(request):
+	error = None
+	first_name = request.POST.get('first_name')
+	if re.match(r'^[A-Za-z]{1,25}$', first_name) or first_name == None:
+		return error
+	else:
+		error = "Can not have other characters in name"
+		return error
+'''
 	
