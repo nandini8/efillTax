@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from efill_app.forms import PersonalInfoForm
 from django.http import HttpResponse
 from efill_app.models import PersonalInfo
@@ -8,12 +10,23 @@ import re
 # Create your views here.
 
 
+
+def login(request):
+	if request.user.is_authenticated():
+		logout(request)
+	return render(request, 'login.html')
+
+@login_required(login_url='/')
 def itr_form_view(request):
 	error = None
 	if request.method == 'POST':
 		error = test_all(request)
 
 	return render(request, 'ITRform.html',{'error': error})
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
 
 
 def test_all(request):

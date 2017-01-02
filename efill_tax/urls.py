@@ -19,5 +19,8 @@ from efill_app import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.itr_form_view, name='itr_form_view'),
+    url(r'^efile/', include('efill_app.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^$', views.login, name='login'),
+    url(r'^logout/$', views.logout, name='logout'),
 ]

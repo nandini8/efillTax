@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+<html>
+<head>
+{% block head %}
+	<meta charset="utf-8">
+	<meta  name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}">
+	<!--NAV BAR-->
+	<div>
+		<div class="row">
+			<nav class="navbar navbar-default navbar-fixed-top navbar-custom" role = "navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a href="/rango/" align="center" class="navbar-brand"><font color="white" size="4">RANGO</font></a>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+							MENU
+							<!---span class="sr-only">Toggle Navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span-->
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id = "collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/rango/"><font color="white">HOME</font></a></li>
+							<li><a href="/rango/category" class="active"><font color="white">CATEGORY</font></a></li>
+							<li><a href="/rango/about"><font color="white">ABOUT</font></a></li>
+							<li><a href="/rango/contact"><font color="white">CONTACT US</font></a></li>
+							<li><a href="/admin"><font color="white">ADMIN</font></a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</div>
+{% endblock %}
+</head>
+<body>
+	<!--javascript-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+	$('a.btn-danger').tooltip()
+	</script>
+</body>
+</html>
