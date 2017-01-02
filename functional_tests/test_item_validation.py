@@ -21,7 +21,7 @@ class PanFieldTest(FunctionalTest):
 		error = self.get_element('pan_div')
 		self.assertEqual(error.text, "Invalid PAN number")'''
 
-	def test_pan_number_has_right_characters_and_length_is_ten_characters(self):
+	def test_pan_number_has_right_characters(self):
 		self.browser.get(self.live_server_url)
 		pan_inputbox = self.get_element('id_pan_number')
 		pan_inputbox.send_keys('AAA2345ASE\n')
@@ -48,3 +48,13 @@ class LastNameFeildTest(FunctionalTest):
 		name_inputbox.send_keys('Koothrapa65lli\n')
 		error = self.get_element('last_name_div')
 		self.assertEqual(error.text, "Enter a valid last name")
+
+class FlatNumberFieldTest(FunctionalTest):
+
+	def test_flat_number_is_not_empty(self):
+		self.browser.get(self.live_server_url)
+		flat_inputbox = self.get_element('id_flat_number')
+		flat_inputbox.send_keys('\n')
+		error = self.get_element('flat_number_div')
+		self.assertEqual(error.text, "Flat/ Building/ Door can not be empty")
+
