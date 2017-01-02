@@ -16,6 +16,10 @@ def login(request):
 		logout(request)
 	return render(request, 'login.html')
 
+@login_required(login_url='/')	
+def home(request):
+	return render(request, 'base.html')
+
 @login_required(login_url='/')
 def itr_form_view(request):
 	error = None

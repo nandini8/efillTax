@@ -36,7 +36,7 @@
 						<h5>Log in with your email id</h5>
 					</div>
 					<div class="row" style="padding-bottom: 10px; padding-top: 20px; background-color: #f7f7f7;">
-						<center><a href="{% url 'social:begin' 'google-oauth2' %}?next=/efile/form1/" class="btn btn-danger btn-lg" style="background-color: #bb1225">Log In</a></center>
+						<center><a href="{% url 'social:begin' 'google-oauth2' %}?next=/efile/home/" class="btn btn-danger btn-lg" style="background-color: #bb1225">Log In</a></center>
 					</div>
 					{% if user and not user.is_anonymous %}
 						<h1>HELLO</h1>
