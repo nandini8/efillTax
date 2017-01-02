@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'efill_app',
     'bootstrap3',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,9 +67,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
+
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    'social.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 WSGI_APPLICATION = 'efill_tax.wsgi.application'
@@ -114,3 +127,10 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '302837650334-i4qcfq6a0u9s9l8dmvnd25n1lk7m35eo'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Gpe3bRUuUS4ShSroD3sTZrEb'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = ['http://127.0.0.1:8000/complete/googl0e-oauth2/' , 'https://efiletax.herokuapp.com/complete/google-oauth2/', 'http://efiletax.herokuapp.com/complete/google-oauth2/']
+#SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+SOCIAL_AUTH_LOGIN_URL = '/'

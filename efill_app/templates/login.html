@@ -1,0 +1,53 @@
+<!--login.html-->
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log in</title>
+</head>
+<body style="background-color: #6c6c6c">
+
+	<div class="row" style="padding: 80px"></div>
+
+	<div class="row">
+		<div class="col-md-4"></div>
+
+		<div class="col-md-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading" style="background-color: #286dd2">
+					<center><h3>LOGO</h3></center>
+				</div>
+				<div class="panel-body" >
+					<div class="row text-center" style="padding-left: 30px; padding-right: 30px;">
+						<h4><b>Income Tax Return Form</b></h4>
+					</div>
+					<div class="row text-center" style="background-color: #f7f7f7; padding-top: 10px;">
+						<h5>Log in with your email id</h5>
+					</div>
+					<div class="row" style="padding-bottom: 10px; padding-top: 20px; background-color: #f7f7f7;">
+						<center><a href="{% url 'social:begin' 'google-oauth2' %}?next=/efile/form1/" class="btn btn-danger btn-lg" style="background-color: #bb1225">Log In</a></center>
+					</div>
+					{% if user and not user.is_anonymous %}
+						<h1>HELLO</h1>
+					{% endif %}
+				</div>	
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+
+
+</body>
+</html>, 
