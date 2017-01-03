@@ -3,21 +3,6 @@ body {
 	padding-top: 50px;
 }
 
-.jumbotron {
-	background-color: #1ABC9C !important;
-}
-
-.jumbotron .glyphicon{
-	color: #FDFEFE;
-}
-
-.navbar-default {
-	background-color: #2C3E50;
-}
-
-.navbar-default .navbar-toggle{
-	color: #FDFEFE;
-}
 hr.star-light, hr.star-primary {
     padding: 0;
     border: none;
@@ -50,4 +35,5 @@ footer {
     background-color : #1C2833;
     color: white;
 }
+
 

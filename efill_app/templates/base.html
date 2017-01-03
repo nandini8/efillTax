@@ -19,41 +19,41 @@
 	<!--NAV BAR-->
 	<div>
 		<div class="row">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-custom" role = "navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<a href="/rango/" align="center" class="navbar-brand"><font color="white" size="4">Income Tax Return</font></a>
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-							MENU
-							<!---span class="sr-only">Toggle Navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span-->
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id = "collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li class="dropdown">
-					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  style="color: white">FILE TAX<span class="caret" style="color: white"></span></a>
-					          <ul class="dropdown-menu">
-					            <li><a href="/efile/form1/">ITR 1</a></li>
-					            <li><a href="#">TDS</a></li>
-					            <li><a href="#">80 G</a></li>
-					            <li><a href="#">Taxes paid and verification</a></li>
-					          </ul>
-					        </li>
-						</ul>
-					</div>
-				</div>
+			<nav class="navbar navbar-fixed-top" role = "navigation">
+				<nav class="navbar navbar-inverse">
+				  	<div class="container-fluid">
+					    <ul class="nav navbar-nav">
+					    	<li><a href="#" style="color: white">Income Tax Return</a></li>
+					      	<li><a href="#" style="color: white">Summary and Status</a></li>
+					      	<li><a href="/efile/form1/" style="color: white">Personal Information</a></li>
+							<li><a href="#" style="color: white">Salary Information</a></li>
+							<li><a href="#" style="color: white">House and Property</a></li>
+							<li><a href="#" style="color: white">Business or Profession</a></li>
+							<li><a href="#" style="color: white">Capital Gains</a></li>
+							<li><a href="#" style="color: white">Other Sources</a></li>
+					    </ul>
+					    <ul class="nav navbar-nav navbar-right">
+					      <li class="dropdown">
+						        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{user.first_name}}
+						        <span class="caret"></span></a>
+						        <ul class="dropdown-menu">
+						          <li><a href="/logout/">Logout</a></li>
+						        </ul>
+					      	</li>
+					    </ul>
+					  </div>
+				</nav>
 			</nav>
 		</div>
 	</div>
 {% endblock %}
 </head>
 <body>
-<div class="text-center">
+{% block body %}
+	<div class="text-center">
 	<img src="{% static "images/emblemofindia.png" %}">
 </div>
+{% endblock %}
 	<!--javascript-->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>

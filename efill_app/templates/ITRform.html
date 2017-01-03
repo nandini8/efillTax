@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {# Load the tag library #}
 {% load bootstrap3 %}
 
@@ -13,15 +14,332 @@
 <html>
 <head>
 	<title>ITR Form</title>
-</
+</head>
 <body>
-<div class="jumbotron container">
-	<h1 class="text-center">Income Tax Return Form</h1>
+{% block body %}
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    {% csrf_token %}
+<fieldset>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">PAN Number</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="pan_number" placeholder="PAN Number" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">First Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Middle Name</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="middle_name" placeholder="Middle Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Last Name</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Flat/ Building/ Door</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="flat_name" placeholder="Flat/ Building/ Door" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Name of Premises/ Building/ Village</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="premise_name" placeholder="Name of Premises/ Building/ Village" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Road/ Street</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="road_name" placeholder="Road/ Street" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Area/ Locality</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="area_name" placeholder="Area/ Locality" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Road/ Street</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="city_name" placeholder="Town/ City/ District" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+       <div class="form-group">
+  <label class="col-md-4 control-label">E-Mail</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+<!-- Select Basic -->
+   
+<div class="form-group"> 
+  <label class="col-md-4 control-label">State</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="state" class="form-control selectpicker" >
+      <option value=" " >Please select your state</option>
+      <option>Andhra Pradesh</option>
+      <option>Arunachal Pradesh</option>
+      <option >Assam</option>
+      <option >Bihar</option>
+      <option >Chhattisgarh</option>
+      <option >Goa</option>
+      <option >Gujarat</option>
+      <option >Haryana</option>
+      <option >Himachal Pradesh</option>
+      <option>Jammu & Kashmir</option>
+      <option >Jharkhand</option>
+      <option >Karnataka</option>
+      <option >Kerala</option>
+      <option >Madhya Pradesh</option>
+      <option >Maharashtra</option>
+      <option >Manipur</option>
+      <option> Meghalaya</option>
+      <option >Mizoram</option>
+      <option >Nagaland</option>
+      <option>Odisha</option>
+      <option >Punjab</option>
+      <option> Rajasthan</option>
+      <option >Sikkim</option>
+      <option >Tamil Nadu</option>
+      <option>Telangana</option>
+      <option>Tripura</option>
+      <option>Uttar Pradesh</option>
+      <option>Uttarakhand</option>
+      <option>West Bengal</option>
+      <option>Andaman and Nicobar Islands</option>
+      <option>Chandigarh</option>
+      <option>Dadra and Nagar Haveli</option>
+      <option>Daman and Diu</option>
+      <option>Lakshadweep</option>
+      <option>Delhi</option>
+      <option>Puducherry</option>
+    </select>
+  </div>
+</div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Pincode</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  <input name="pincode" placeholder="Pincode" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- radio checks -->
+ <div class="form-group">
+    <label class="col-md-4 control-label">Martial Status</label>
+    <div class="col-md-4">
+        <div class="radio">
+            <label>
+                <input type="radio" name="status" value="married" /> Married
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="status" value="unmarried" /> Unmarried
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="status" value="widow" /> Widow
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Date of Birth</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="dob" placeholder="Date of Birth" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- radio checks -->
+ <div class="form-group">
+    <label class="col-md-4 control-label">Sex</label>
+    <div class="col-md-4">
+        <div class="radio">
+            <label>
+                <input type="radio" name="sex" value="male" /> Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="sex" value="female" /> Female
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Mobile no. 1</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="mobile_1" placeholder="Mobile number 1" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Text input-->
+       
+<div class="form-group">
+  <label class="col-md-4 control-label">Mobile no. 2</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="mobile_2" placeholder="Mobile number 2" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->
+
+       
+<div class="form-group">
+  <label class="col-md-4 control-label">Phone number</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+  <input name="phone" placeholder="Phone number" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+   
+<div class="form-group"> 
+  <label class="col-md-4 control-label">Employer Category</label>
+    <div class="col-md-4 selectContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="id_employer_category" class="form-control selectpicker" >
+      <option value=" " >Please select your Employer Category</option>
+      <option>NA</option>
+      <option>OTH</option>
+      <option >PSU</option>
+      <option >GOV</option>
+    </select>
+  </div>
+</div>
+</div>
+      
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn" >Send <span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+    </div><!-- /.container -->
+
+
+
+
+
+<!--<div class="container">
 	<form method="POST">
 		{% csrf_token %}
-		<table class="table table-hover">
+		<table class="table"> 
 			<tr>
-				<td class="text-center">PAN Number</td>
+				<td class="text-center" >PAN Number</td>
 				<td><input name="pan_number" id="id_pan_number" placeholder="Enter PAN number" class="form-control"/>
 					{% if  error.pan  %}
 					<div id="pan_div" class="form-group has-error">
@@ -123,6 +441,7 @@
 			</tr>
 		</table>
 	</form>
-</div>
+</div>-->
+{% endblock %}
 </body>
 </html>
