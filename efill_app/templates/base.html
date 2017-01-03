@@ -22,8 +22,27 @@
 			<nav class="navbar navbar-fixed-top" role = "navigation">
 				<nav class="navbar navbar-inverse">
 				  	<div class="container-fluid">
+				  	<div class="row">
+				  		<ul class="nav navbar-nav">
+				  			<li><img src="{% static "images/ITR.jpg" %}" height="40" width="40" style="margin-left: 10px; margin-top: 10px"/></li>
+					    	<li style="margin-top: 8px "><a href="/efile/home/" style="color: white ; font-family: monospace; font-size: 25px">INCOME TAX RETURN</a></li>
+ 
+					    </ul>
+					    	<ul class="nav navbar-nav navbar-right">
+					      <li class="dropdown">
+						        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="margin-right: 50px; font-family: monospace; font-size: 15px; margin-top: 8px ; color: white;">
+						        Welcome {{user.first_name}}
+						        <span class="caret"></span></a>
+						        <ul class="dropdown-menu">
+						          <li><a href="/logout/">Logout</a></li>
+						        </ul>
+					      	</li>
+					    </ul>
+				  	</div>
+
+				  	<div class="row">
+				  		<div class="container">
 					    <ul class="nav navbar-nav">
-					    	<li><a href="#" style="color: white">Income Tax Return</a></li>
 					      	<li><a href="#" style="color: white">Summary and Status</a></li>
 					      	<li><a href="/efile/form1/" style="color: white">Personal Information</a></li>
 							<li><a href="#" style="color: white">Salary Information</a></li>
@@ -32,16 +51,8 @@
 							<li><a href="#" style="color: white">Capital Gains</a></li>
 							<li><a href="#" style="color: white">Other Sources</a></li>
 					    </ul>
-					    <ul class="nav navbar-nav navbar-right">
-					      <li class="dropdown">
-						        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{user.first_name}}
-						        <span class="caret"></span></a>
-						        <ul class="dropdown-menu">
-						          <li><a href="/logout/">Logout</a></li>
-						        </ul>
-					      	</li>
-					    </ul>
-					  </div>
+					    </div>
+					</div>
 				</nav>
 			</nav>
 		</div>
@@ -50,9 +61,7 @@
 </head>
 <body>
 {% block body %}
-	<div class="text-center">
-	<img src="{% static "images/emblemofindia.png" %}">
-</div>
+	<img src="{% static "images/emblemofindia.png" %}" class="img-responsive center-block">
 {% endblock %}
 	<!--javascript-->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
